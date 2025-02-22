@@ -19,6 +19,16 @@ FROM countries
 JOIN countrylanguages ON countries.code = countrylanguages.countrycode 
 WHERE countries.name = 'Holy See (Vatican City State)';
 
+SELECT language
+FROM countrylanguages
+WHERE countrycode = (
+    SELECT code
+    FROM countries
+    WHERE region = 'Southern Europe'
+    ORDER BY population ASC 
+    LIMIT 1
+);
+
 
 -- Clue #3: We have new news on the classes Carmen attended – our gumshoes tell us she's moved on to a different country, a country where people speak only the language she was learning. Find out which nearby country speaks nothing but that language.
 
