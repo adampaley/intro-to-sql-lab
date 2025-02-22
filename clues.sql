@@ -14,6 +14,11 @@ LIMIT 1;
 
 -- Write SQL query here
 
+SELECT countries.name AS country, countrylanguages.language AS language 
+FROM countries
+JOIN countrylanguages ON countries.code = countrylanguages.countrycode 
+WHERE countries.name = 'Holy See (Vatican City State)';
+
 
 -- Clue #3: We have new news on the classes Carmen attended – our gumshoes tell us she's moved on to a different country, a country where people speak only the language she was learning. Find out which nearby country speaks nothing but that language.
 
