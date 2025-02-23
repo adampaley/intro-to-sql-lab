@@ -29,7 +29,7 @@ FROM countries
 JOIN countrylanguages ON countries.code = countrylanguages.countrycode 
 WHERE countrylanguages.language = 'Italian' 
 AND countries.region = 'Southern Europe'
-AND countrylanguages.percentage = 100.0
+AND countrylanguages.percentage = 100.0;
 
 -- San Marino
 
@@ -37,6 +37,13 @@ AND countrylanguages.percentage = 100.0
 
 -- Write SQL query here
 
+SELECT countries.name AS country, cities.name AS city
+FROM countries
+JOIN cities on countries.code = cities.countrycode
+WHERE countries.name = 'San Marino'
+AND NOT countries.name = cities.name;
+
+-- Serravalle
 
 -- Clue #5: Oh no, she pulled a switch – there are two cities with very similar names, but in totally different parts of the globe! She's headed to South America as we speak; go find a city whose name is like the one we were headed to, but doesn't end the same. Find out the city, and do another search for what country it's in. Hurry!
 
